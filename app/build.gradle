@@ -1,0 +1,27 @@
+plugins {
+	id 'org.beryx.runtime' version '1.12.7'
+}
+
+repositories {
+	mavenCentral()
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+application {
+	mainClass = 'loc_test.App'
+}
+
+runtime {
+	launcher {
+		jvmArgs = [
+			'-Duser.country=DE',
+			'-Duser.language=de',
+			'-Djava.locale.providers=COMPAT,CLDR,SPI'
+		]
+	}
+}
